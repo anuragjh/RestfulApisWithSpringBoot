@@ -1,0 +1,9 @@
+Hibernate: drop table if exists posts cascade
+Hibernate: drop table if exists users cascade
+Hibernate: drop sequence if exists posts_seq
+Hibernate: drop sequence if exists users_seq
+Hibernate: create sequence posts_seq start with 1 increment by 50
+Hibernate: create sequence users_seq start with 1 increment by 50
+Hibernate: create table posts (id integer not null, users_id integer, description varchar(255), primary key (id))
+Hibernate: create table users (birth_date date, id integer not null, name varchar(255) not null, primary key (id))
+Hibernate: alter table if exists posts add constraint FKhc5cfu63utmr42sr1v1tsr7so foreign key (users_id) references users
